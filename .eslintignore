@@ -1,0 +1,8 @@
+test/*.js
+src/spread-sheets
+src/spread-sheets-react
+src/serviceWorker.ts
+src/setupTests.ts
+scripts/
+config/
+

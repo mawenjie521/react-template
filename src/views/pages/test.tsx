@@ -1,10 +1,10 @@
 import React from 'react';
-import {connect} from 'dva';
-import {Button} from 'antd';
-import {setValue} from '@/actions/test';
+import { connect } from 'dva';
+import { Button } from 'antd';
+import { setValue } from '@/actions/test';
 
-function AppTest(props: any){
-    function changeValue(){
+function AppTest(props: any) {
+    function changeValue() {
         props.setValue('this is new app test');
     }
     return (
@@ -15,18 +15,18 @@ function AppTest(props: any){
     );
 }
 
-function mapStateToProps({test}: {test: any}){
+function mapStateToProps({ test }: { test: any }) {
     return {
         value: test.value,
-    }
+    };
 }
 
-function mapDispatchToProps(dispatch: any){
+function mapDispatchToProps(dispatch: any) {
     return {
-        setValue(value: string){
+        setValue(value: string) {
             return dispatch(setValue(value));
-        }
-    }
+        },
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppTest);
