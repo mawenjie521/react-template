@@ -120,3 +120,34 @@
     }
 
     export default connect(mapStateToProps, mapDispatchToProps)(HomePage);// 使用connect把state和dispatch放入组件的props中
+    
+    ### react css/less module 使用说明：
+
+-   声明 less 或者 css 时，要加 module,如： index.module.less;
+
+```javascript
+//index.module.less
+.error{
+    color: red;
+    .error-bg{
+        color: white;
+        background: red;
+    }
+}
+```
+
+-   使用时 import 进来，如：import styles from './index.module.less';
+-   在 tsx 中使用，如： <div className={styles.error}/>
+
+```javascript
+//index.tsx
+import styles from './index.module.less';
+
+export default function Demo() {
+    return (
+        <div className={styles.error}>
+            <span className={styles['error-bg']}>错误</span>
+        </div>
+    );
+}
+```
