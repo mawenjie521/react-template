@@ -49,9 +49,15 @@ const resolveModule = (resolveFn, filePath) => {
 
   return resolveFn(`${filePath}.js`);
 };
+
+let dotEnv = process.env.DOT_ENV;
+if (dotEnv && !dotEnv.startsWith('.')) {
+    dotEnv = `.${dotEnv}`;
+}
+
 // config after eject: we're in ./config/
 module.exports = {
-  dotenv: resolveApp('.env'),
+  dotenv: resolveApp(`.env${dotEnv}`),
   appPath: resolveApp('.'),
   appBuild: resolveApp(buildPath),
   appPublic: resolveApp('public'),
